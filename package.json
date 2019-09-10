@@ -4,7 +4,8 @@
   "description": "A space to explore webhooks and the data that they return",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bengscott2/Exploring-Webhooks/issues"
   },
-  "homepage": "https://github.com/bengscott2/Exploring-Webhooks#readme"
+  "homepage": "https://github.com/bengscott2/Exploring-Webhooks#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
