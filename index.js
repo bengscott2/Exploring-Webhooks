@@ -20,6 +20,7 @@ app.get('*', (req,res) =>{
 app.post('/webhook'), (req,res) => {
   returned_data = req.data
   console.log(returned_data);
+  res.sendStatus(200)
 }
 const port = process.env.PORT || 5000;
 app.listen(port);
