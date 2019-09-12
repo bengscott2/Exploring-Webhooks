@@ -8,20 +8,20 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 var returned_data = 'hello world'
 // An api endpoint that returns the data stored from the webhook api endpoint
 app.get('/getdata', (req,res) => {
-    res.json(returned_data);
+  res.json(returned_data);
 });
 
 // Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get('/', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 //Handles webhook requests and stores the latest request in the returned_data varriable
-app.post('/webhook'), (req,res) => {
-  returned_data = req.data
-  console.log(returned_data);
+app.use(express.json());
+app.post('/webhook', (req,res) => {
+  returned_data = JSON.stringify(req.body)
   res.sendStatus(200)
-}
+})
 const port = process.env.PORT || 5000;
 app.listen(port);
 
